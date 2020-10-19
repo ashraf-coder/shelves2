@@ -1,0 +1,23 @@
+{% extends "shelvesapp/base.html" %}
+
+{% block title %}
+laptops
+{% endblock %}
+
+{% block body %}
+
+<u>
+    {% for laptop in laptops %}
+        <li>
+            {{ laptop.name }}<br>
+            <{{phone.model}}<br>
+                <label>RAM: </label>{{laptop.RAM}}<br>
+                <label>Available Storage: </label>{{laptop.storage}}<br>
+                <label>Added by:</label>{{ phone.addedBy }}
+                <br>
+                <button>You like it? contant seller</button>
+        </li>
+    {% endfor %}
+</u>
+
+{% endblock %}

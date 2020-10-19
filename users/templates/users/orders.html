@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>orders</title>
+    <link href="{% static 'users/css/orderspage.css' %}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+                <div class="heading">
+                    <h1>{{ business }}'s </h1>
+                </div>
+
+                <div class="content">
+                    {% for cust in customer %}
+                    <div class="item">
+                        {% if cust %}
+                        <strong><label>Client's Name: </label></strong><p><i>{{ cust.name }}</i></p><br>
+                        <strong><label>Client's Number: </label></strong><p><i>{{ cust.number }}</i></p><br>
+                        <strong><label>Product of interest: </label></strong><p><i>{{ cust.productName }}</i></p><br>
+                        <strong><label>order placed on: </label></strong><p><i>{{ cust.addedOn }}</i></p><br><br>
+                        <form action="{% url 'delete-order' cust.id %}" method="POST">{% csrf_token %}
+                            <input type = "submit" value="delete client"/>
+                        </form>
+                        {% else %}
+                            <p>Your dont have any client yet! keep praying!</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+
+        </div>
+    </div>
+</body>
+</html>

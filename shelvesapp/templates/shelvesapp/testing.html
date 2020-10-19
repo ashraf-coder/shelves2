@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shelf</title>
+</head>
+<body>
+
+    <h1>{{ bisness }} business company</h1><br>
+    <p>ADDED PRODUCTS</p>
+    <ul>{% for category in categories_list %}
+            {% if category == '1' %}
+                {% for phone in phones %}
+                    <li>
+                        {{ phone.name }}<br>
+                        <{{phone.model}}<br>
+                            <label>RAM: </label>{{phone.RAM}}<br>
+                            <label>Available Storage: </label>{{phone.storage}}<br>
+                            <label>Phone color:</label>{{phone.color}}<br>
+                            <label>Added by:</label>{{ phone.addedBy }}
+                            <br>
+
+                    </li>
+                {% endfor %}
+                <p><a href="{% url 'phones_form' %}">Add phones here</a></p>
+            {% elif category == '2' %}
+                {% for shoe in shoes %}
+                    <li>
+                        <label>nameL:</label>{{ shoe.name }}<br>
+                        <label>Added by:</label>{{ phone.addedBy }}
+                            <br>
+
+                    </li>
+                 {% endfor %}
+                <li><a href="{% url 'shoes_form' %}">Add shoes here</a></li>
+            {% elif category == '3' %}
+                {% for laptop in laptops %}
+                    <li>
+                        {{ laptop.name }}<br>
+                        <{{phone.model}}<br>
+                            <label>RAM: </label>{{laptop.RAM}}<br>
+                            <label>Available Storage: </label>{{laptop.storage}}<br>
+                            <label>Added by:</label>{{ phone.addedBy }}
+                            <br>
+                            <button>You like it? contant seller</button>
+                    </li>
+                {% endfor %}
+                <li><a href="{% url 'laptops_form' %}">Add laptops here</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <a href="{% url 'logout' %}"><button>logout</button></a>
+<p>helooooooo</p>
+</body>
+</html>

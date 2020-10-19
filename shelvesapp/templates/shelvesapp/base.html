@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" >
+    <title>{% block title %} {% endblock %}</title>
+    <link href="{% static 'shelvesapp/css/base.css' %}" type="text/css" rel="stylesheet" />
+
+</head>
+<body>
+    <div>
+        <nav class="nav1">
+            <h1 >SHELVES</h1>
+            <div id="logreg">
+                <a href="{% url 'register' %}"><button>Get your shelf here!</button></a>
+                <a href="{% url 'login' %}"><button>My Shelf</button></a>
+            </div>
+        </nav><br>
+    </div>
+        <nav>
+            <a href="{% url 'phones' %}">phones</a>
+            <a href="{% url 'shoes' %}">shoes</a>
+            <a href="{% url 'laptops' %}">laptops</a>
+        </nav>
+
+
+
+</body>
+</html>

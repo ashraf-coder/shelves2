@@ -1,0 +1,39 @@
+.wrapper{
+    max-width: 1366px;
+    margin-right: 25px;
+	margin-left: 25px;
+	background-color: rgba(71, 71, 71, 0.15);
+}
+
+.container{
+	display: grid;
+	grid-template-rows: auto;
+	grid-gap: 10px 10px;
+	grid-template-areas:
+		"heading"
+		"images"
+		"form"
+}
+
+.heading{
+    grid-area: heading;
+}
+
+.heading h1{
+    font-size: 60px;
+    color: rgb(150, 0, 30);
+    margin-top: 0px;
+    text-align: center;
+}
+
+.image{
+    grid-area: images;
+    display: flex;
+    justify-content: center;
+}
+
+.image img{
+    border-radius: 20px;
+	width: 500px;
+	height: 500px;
+}

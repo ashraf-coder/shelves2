@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link href="{% static 'users/css/registerpage.css' %}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="heading">
+                <h1>Enter your shelf details</h1>
+            </div>
+            <form action="{% url 'register' %}" method="POST">{% csrf_token %}
+                <div class="login-form">
+                   {{shelf_account_form.as_p}}
+                </div>
+                <div class="biz-form">
+                   {{business_form.as_p}}
+                   {{categories_form.as_p}}
+                </div>
+                <input type="submit" value="create"/>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

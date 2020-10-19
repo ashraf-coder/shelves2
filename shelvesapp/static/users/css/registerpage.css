@@ -1,0 +1,43 @@
+.wrapper{
+    max-width: 1366px;
+    margin-right: 25px;
+	margin-left: 25px;
+}
+
+.container{
+	display: grid;
+	grid-template-rows: auto;
+	grid-gap: 10px 10px;
+	grid-template-areas:
+	    "heading"
+		"form"
+}
+
+.heading{
+    grid-area: heading;
+    border: 1px solid red;
+}
+
+form{
+    grid-area: form;
+    border: 1px solid red;
+    padding: 10px;
+}
+
+.heading{
+    grid-area: heading;
+}
+
+.heading h1{
+    font-size: 60px;
+    color: rgb(150, 0, 30);
+    margin-top: 0px;
+    text-align: center;
+}
+
+.errorlist{
+    color: blue;
+    font-size: 20px;
+    display: none;
+}
+

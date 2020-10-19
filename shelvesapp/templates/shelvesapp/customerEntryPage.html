@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>customer entry</title>
+    <link href="{% static 'shelvesapp/css/customerentrypage.css' %}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="heading">
+                <h1>We need your information please!</h1>
+            </div>
+            <div class="form">
+                <form action="{% url 'customer' %}" method="POST">{% csrf_token %}
+                    {{ customer_form.as_p }}
+                    <button type="submit" >continue</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

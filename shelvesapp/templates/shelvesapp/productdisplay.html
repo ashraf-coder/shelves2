@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shelf</title>
+
+    <link href="{% static 'shelvesapp/css/productdisplay.css' %}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+            {% if message %}
+                <h1>{{message}}!</h1><br>
+            {% endif %}
+        <div class="container">
+            {% if phone %}
+            <div class="heading">
+                <h1>{{ phone.addedBy }}'s </h1>
+            </div>
+
+            <div class="images">
+                {% if phone.image %}
+                 <img src="{{ phone.image.url }}"><br>
+                {% endif %}
+            </div>
+
+            <div class="info">
+                <strong><label>Name: </label></strong><p><i>{{ phone.name }}</i></p><br>
+                <strong><label>Model: </label></strong><p><i>{{phone.model}}</i></p><br>
+                <strong><label>RAM: </label></strong><p><i>{{phone.RAM}}</i></p><br>
+                <strong><label>Available Storage: </label></strong><p><i>{{phone.storage}}</i></p><br>
+                <strong><label>Phone color:</label></strong><p><i>{{phone.color}}</i></p><br>
+                <a href="{% url 'customer' %}"><button id="contact">Add to chart</button></a>
+            </div>
+
+            <div class="btn">
+                <a href="{% url 'other_phones' phone.id %}"><button id="btn">click to view more {{ adder }}'s products!</button></a>
+            </div>
+        </div>
+        {% elif shoe %}
+        <div class="container">
+            <div class="heading">
+                <h1>{{ shoe.addedBy }}'s </h1>
+            </div>
+
+            <div class="images">
+                <img src="{% static 'images/iphone.jpg' %}">
+            </div>
+
+            <div class="info">
+                <strong><label>Name: </label></strong><p><i>{{ shoe.name }}</i></p><br>
+                <strong><label>Size: </label></strong><p><i>{{ shoe.size }}</i></p><br>
+                <strong><label>Maker: </label></strong><p><i>{{ shoe.maker }}</i></p><br>
+                <button id="contact">Add to chart</button>
+            </div>
+
+        </div>
+        {% endif %}
+
+    </div>
+
+
+</body>
+</html>

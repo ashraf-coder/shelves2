@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>shelf</title>
+     <link href="{% static 'shelvesapp/css/shoppage.css' %}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="heading">
+                <h1>Welcome to {{ adder }}'s </h1>
+            </div>
+
+            <div class="images">
+                {% if phone.image %}
+                 <img src="{{ phone.image.url }}"><br>
+                {% endif %}
+            </div>
+
+            <div class="content">
+                    {% if others %}
+                        {% for phone in others %}
+                        <div class="item">
+                            <img src="{{ phone.image.url }}"><br>
+                            <strong><label>Name: </label></strong><p><i>{{ phone.name }}</i></p><br>
+                            <strong><label>Model: </label></strong><p><i>{{phone.model}}</i></p><br>
+                            <strong><label>RAM: </label></strong><p><i>{{phone.RAM}}</i></p><br>
+                            <strong><label>Available Storage: </label></strong><p><i>{{phone.storage}}</i></p><br>
+                            <strong><label>Phone color:</label></strong><p><i>{{phone.color}}</i></p><br>
+                            <button id="contact">add to chart</button>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                         <p>No other phones</p>
+                    {% endif %}
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

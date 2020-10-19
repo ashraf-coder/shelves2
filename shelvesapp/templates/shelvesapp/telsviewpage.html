@@ -1,0 +1,16 @@
+{% extends "shelvesapp/base.html" %}
+
+{% block title %}
+televisions
+{% endblock %}
+
+{% block body %}
+<u>
+    {% for tel in tels %}
+        <li>
+            {{ tel.name }}<br>
+            <label>size: </label>{{tel.size}}
+        </li>
+    {% endfor %}
+</u>
+{% endblock %}

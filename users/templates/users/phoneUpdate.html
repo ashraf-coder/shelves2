@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>phoneentry</title>
+    <link href="{% static 'shelvesapp/css/phoneUpdate.css' %}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="heading">
+                <h1>Edit Product</h1><br>
+            </div>
+            <div class="image">
+                 {% if phone.image %}
+                     <img src="{{ phone.image.url }}"><br>
+                 {% endif %}
+            </div>
+            <div class="form">
+                <form action="." enctype="multipart/form-data" method="POST">{% csrf_token %}
+                    <img src="{{ phone.image.url }}"><br>
+                        {{ phone_form.as_p }}
+                    <input type="submit" value="update"/>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+

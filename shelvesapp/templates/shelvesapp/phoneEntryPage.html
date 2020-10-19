@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>phoneentry</title>
+    <link href="{% static 'shelvesapp/css/phoneEntryPage.css' %}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="heading">
+                <h1>Enter phone specifications</h1>
+            </div>
+            <div class="form">
+                <form action="{% url 'phones_form' %}" enctype="multipart/form-data" method="POST">{% csrf_token %}
+                    {{ phone_form.as_p }}
+                    <button type="submit" >add phone</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

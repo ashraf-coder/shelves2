@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shelf</title>
+    <link href="{% static 'users/css/shelfpage.css' %}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="heading">
+                <h1>{{ bisness }} business company</h1>
+            </div>
+            <div class="images">
+              <img src="{% static 'images/iphone.jpg' %}">
+            </div>
+            <div class="add">
+                <a href="{% url 'orders' %}"><button id="logout">Orders</button></a>
+                <a href="{% url 'logout' %}"><button id="logout">logout</button></a>
+            </div>
+            <div class="content-main">
+                    {% for category in categories_list %}
+                        {% if category == '1' %}
+                            <div class="row1">
+                                <p class="pro"><i>phones added</i></p>
+                                <a href="{% url 'phones_form' %}"><button>Add a phone here</button></a>
+                            </div>
+
+                            <div class="content">
+                                {% for phone in phones %}
+                                <div class="item">
+                                    {% if phone.image %}
+                                       <img src="{{ phone.image.url }}"><br>
+                                    {% endif %}
+                                        <strong><label>Name: </label></strong><p><i>{{ phone.name }}</i></p><br>
+                                        <strong><label>Model: </label></strong><p><i>{{phone.model}}</i></p><br>
+                                        <strong><label>RAM: </label></strong><p><i>{{phone.RAM}}</i></p><br>
+                                        <strong><label>Available Storage: </label></strong><p><i>{{phone.storage}}</i></p><br>
+                                        <strong><label>Phone color:</label></strong><p><i>{{phone.color}}</i></p><br>
+                                        <div class="btn">
+                                            <a href="{% url 'delete' phone.id %}"><button>Delete product</button></a>
+                                            <a href="{% url 'update' phone.id %}"> <button>Edit product</button></a>
+                                        </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        {% elif category == '2' %}
+                            <div class="row1">
+                                <p class="pro"><i>added shoes</i></p>
+                                <a href="{% url 'shoes_form' %}"><button>Add shoes here</button></a>
+                            </div>
+
+                            <div class="content">
+                                {% for shoe in shoes %}
+                                    <div class="item">
+                                        <strong><label>Name: </label></strong><p><i>{{ shoe.name }}</i></p><br>
+                                        <strong><label>Size: </label></strong><p><i>{{shoe.size}}</i></p><br>
+                                        <strong><label>Maker: </label></strong><p><i>{{shoe.maker}}</i></p><br>
+                                    </div>
+                                {% endfor %}
+                             </div>
+                        {% endif %}
+                    {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

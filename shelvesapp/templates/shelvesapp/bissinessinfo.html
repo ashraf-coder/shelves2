@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bizinfo</title>
+</head>
+<body>
+    <form action="" method="POST">{% csrf_token %}
+        <fieldset>
+                <legend>enter you personal information here please</legend>
+                    <label>business name:<br/><input type="text" name="bname" maxlength="30"/></label><br/>
+                    <label>National ID no.:<br/><input type="text" name="NIN" maxlength="30"/></label><br/>
+                    <label>Location:<br/><input type="text" name="location" maxlength="20"/></label><br/>
+                    <label>Contact:<br/><input type="text" name="contact" maxlength="10"/></label>
+                    <input type="submit" name="submit" value="create account">
+        </fieldset><br><br>
+    </form>
+</body>
+</html>

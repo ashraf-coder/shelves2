@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>home</title>
+	<meta charset="utf-8" />
+
+	<link href="{% static 'shelvesapp/css/homepage.css' %}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1><i>SHELVES</i></h1>
+		</div>
+		<div class="btn-row">
+			<div class="logreg">
+				<a href="{% url 'register' %}"><button id="register">signup for a shelf</button></a>
+            	<a href="{% url 'login' %}"><button id="login">login to your shelf</button></a>
+			</div>
+
+            <div class="dropdown">
+            	<button onclick="drop()" class="dropbtn" id="btn">view product categories</button>
+                <ul id="list" class="list-content">
+                    <li id="phone"><a href="{% url 'phones' %}">phones</a></li>
+                    <li id="shoes"><a href="{% url 'shoes' %}">shoes</a></li>
+                    <li id="laptops"><a href="{% url 'laptops' %}">laptops</a></li>
+                </ul>
+            </div>
+		</div>
+
+		<div class="content">
+			<div class="image-col">
+				<img src="{% static 'images/shoe2.jpg' %}">
+			</div>
+			<div class="message-col">
+				<p><i>Buy from your favourite shops here directly!</i></p>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="list-col">
+				<ul>
+					<li>contact us</li>
+					<li>about us</li>
+					<li>term and condtions</li>
+				</ul>
+			</div>
+			<div class="sponsor1-col">
+				<p>sponsor one</p>
+			</div>
+			<div class="sponsor2-col">
+				<p>sponsor two</p>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	   	var l = document.getElementById("list");
+	   	var b = document.getElementById("btn");
+        function drop(){
+            l.classList.toggle("show");
+        }
+        window.onclick = function(event){
+            if(!event.target.matches('.dropbtn')){
+                var dropdowns = document.getElementByClassName("list-content");
+                var i;
+                for (i = 0; dropdowns.lenght; i++) {
+                    var openDropdrown = dropdowns[i];
+                    if(openDropdrown.classList.contains('show')){
+                        openDropdrown.classList.remove('show');
+                    }
+            }
+        }
+    }
+    </script>
+</body>
+</html>
+
+<link href="{% static 'shelvesapp/css/base.css' %}" type="text/css" rel="stylesheet" />

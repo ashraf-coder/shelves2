@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add product</title>
+</head>
+<body>
+    {% if phones %}
+        {{ phones_form.as_p }}
+    {% elif shoes %}
+        {{ shoes_form.as_p }}
+    {% elif laptops %}
+        {{ laptops_form.as_p}}
+    {% elif phones and shoes %}
+        {{ phones_form.as_p }}<br>
+        {{ shoes_form.as_p }}
+    {% endif %}
+    <p>add a product</p>
+<p>{{b.NIN}}</p>
+</body>
+</html>

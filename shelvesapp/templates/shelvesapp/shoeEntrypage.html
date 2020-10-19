@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shoeentry</title>
+    <link href="{% static 'shelvesapp/css/shoeEntryPage.css' %}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="heading">
+                <h1>Enter shoe specifications</h1>
+            </div>
+            <div class="form">
+                <form action="{% url 'shoes_form' %}" enctype="multipart/form-data" method="POST">{% csrf_token %}
+                    {{ shoe_form.as_p }}
+                    <button type="submit" class="btn btn-primary">add shoe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

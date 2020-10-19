@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>delete</title>
+    <link href="{% static 'shelvesapp/css/product-delete.css' %}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="heading">
+                <h1>{{ bisness }} business company</h1>
+        </div>
+        <div class="image">
+             {% if phone.image %}
+                 <img src="{{ phone.image.url }}"><br>
+             {% endif %}
+        </div>
+        <div class="form">
+            <form action="." method="POST">{% csrf_token %}
+                <h1><strong><p>Deleting this product means customers too will not be able to see it anymore!<br>Do you want to delete this product?</p></strong></h1>
+                <p><input type = "submit" value="Yes" /></p>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

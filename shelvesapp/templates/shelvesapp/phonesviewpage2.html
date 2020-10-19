@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" >
+    <title>phones</title>
+     <link href="{% static 'shelvesapp/css/phonesviewpage.css' %}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="header">
+                <h1><i>SHELVES</i></h1>
+            </div>
+            <div class="btn-row">
+                <div class="logreg">
+                    <a href="{% url 'register' %}"><button id="register">signup for a shelf</button></a>
+                    <a href="{% url 'login' %}"><button id="login">login to your shelf</button></a>
+                </div>
+
+                <div class="dropdown">
+                    <button onclick="drop()" class="dropbtn" id="btn">view product categories</button>
+                    <ul id="list" class="list-content">
+                        <li id="phone"><a href="{% url 'phones' %}">phones</a></li>
+                        <li id="shoes"><a href="{% url 'shoes' %}">shoes</a></li>
+                        <li id="laptops"><a href="{% url 'laptops' %}">laptops</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-main">
+               <div class="row1">
+                   <i>available phones</i>
+               </div>
+               <div class="content">
+                    {% for phone in phones %}
+                    <a href="{% url 'phone_details' phone.id %}"><div class="item">
+                        {% if phone.image %}
+                        <img src="{{ phone.image.url }}"><br>
+                        {% endif %}
+                        <strong><label>Name: </label></strong><p><i>{{ phone.name }}</i></p><br>
+                        <strong><label>Model: </label></strong><p><i>{{phone.model}}</i></p><br>
+                        <strong><label>RAM: </label></strong><p><i>{{phone.RAM}}</i></p><br>
+                        <strong><label>Available Storage: </label></strong><p><i>{{phone.storage}}</i></p><br>
+                        <strong><label>Phone color:</label></strong><p><i>{{phone.color}}</i></p><br>
+                        <strong><label>Added by:</label></strong><p><i>{{ phone.addedBy }}</i></p><br>
+
+                    </div></a>
+                    {% endfor %}
+            </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+	   	var l = document.getElementById("list");
+	   	var b = document.getElementById("btn");
+        function drop(){
+            l.classList.toggle("show");
+        }
+        window.onclick = function(event){
+            if(!event.target.matches('.dropbtn')){
+                var dropdowns = document.getElementByClassName("list-content");
+                var i;
+                for (i = 0; dropdowns.lenght; i++) {
+                    var openDropdrown = dropdowns[i];
+                    if(openDropdrown.classList.contains('show')){
+                        openDropdrown.classList.remove('show');
+                    }
+            }
+        }
+    }
+    </script>
+</body>
+</html>
